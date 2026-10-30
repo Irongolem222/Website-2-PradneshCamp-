@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>My Projects | Pradnesh Camp</title>
+    <meta
+      name="description"
+      content="My Camp site on Internet : coding projects, pixel art and Journey towards being a Developer."
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body> 
+
+    <!-- TOP: A small title and your animated mummy -->
+    <header class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow">Welcome To My Camp</p>
+            <h1>Things I've made<span>.</span></h1>
+            <p class="subtitle">
+                A collection of my projects, experiments, and pixels.
+            </p>
+        </div>
+
+
+        <!-- All six sprites occupy the same space.
+             CSS decides which sprite is visible. -->
+        <div class="runner" role="img" aria-label="A running pixel-art mummy">
+            <img src="run1.png" class="frame frame-1" alt=" ">
+            <img src="run2.png" class="frame frame-2" alt=" ">
+            <img src="run3.png" class="frame frame-3" alt=" ">
+            <img src="run4.png" class="frame frame-4" alt=" ">
+            <img src="run5.png" class="frame frame-5" alt=" ">
+            <img src="run6.png" class="frame frame-6" alt=" ">
+        </div>
+
+        <button class="skip-button" id="skip-intro" type="button">
+            Skip animation 
+            </button>
+    </header>
+
+    <main class="projects-section" id="projects">
+        <p class="eyebrow section-eyebrow">THE PROJECT ARCHIVE</p>
+        <h2>Pick an adventure.</h2>
+        <p class="section-intro">
+            Choose a project to discover what I've been working on.
+        </p>
+
+        <!-- These buttns acts as tabs. -->
+        <div class="project-tabs"  role="tablist" aria-label="My projects">
+
+            <button
+                class="project-tab"
+                id="tab-website"
+                type="button"
+                role="tab"  
+                aria-selected="true"
+                aria-controls="panel-website"
+            >
+                <span class="tab-number">01</span>
+                Personal Site
+            </button>     
+
+
+            <button
+                class="project-tab"
+                id="tab-receipt"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-receipt"
+                tabindex="-1"
+                >
+                <span class="tab-number">02</span>
+                Make the Receipt 
+            </button>
+
+            <button
+                class="project-tab"
+                id="tab-game"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-game"
+                tabindex="-1"
+                >
+                <span class="tab-number">03</span>
+                Game Jam
+            </button>
+        </div>
+
+        <!-- The first panel is visible by default -->
+        <section
+            class="project-panel"
+            id="panel-website"
+            role="tabpanel"
+            aria-labelledby="tab-website"
+            tabindex="0"
+        >
+            <p class="panel-label">PROJECT 01 / WEB DEVELOPMENT</p>
+            <h3>Entering dimension</h3>
+            <p>
+               My first personal website - the beginning of my journey as a developer.
+               Built with HTML, CSS, and plenty of Tutorials.
+            </p>
+
+            <div class="tags"
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Web Development</span>
+            </div>
+
+            <a 
+              class="project-link"
+              href="https://github.com/Irongolem222/Entering-dimension"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+                View on Github
+            </a>
+        </section>
+
+        <!-- The hidden attribute keeps this panel out of view
+             until its corresponding -->
+        <section 
+        class="project-panel"
+        id="panel-receipt"
+        role="tabpanel"
+        aria-labelledby="tab-receipt"
+        tabindex="0"
+        hidden
+    >
+       <p class="panel-label">PROJECT 02 / CREATIVE CODING</p>
+       <h3>Make the Receipt</h3>
+       <p>
+          A Bad Piggies -themed receipt sketch created with p5.js
+          for Hack Club's Receipt Challenge.
+       </p>
+
+       <div class="tags"
+          <span>p5.js</span>
+          <span>JavaScript</span>
+          <span>Creative Coding</span>
+       </div>
+        
+      <a class="project-link" href="https://receipt.hackclub.com/gallery#irongolem222/receipt" target="_blank" rel="noopener noreferrer">
+    View on the Receipt gallery ↗
+</a>
+
+    </section>   
+    
+    <section 
+        class="project-panel"
+        id="panel-game"
+        role="tabpanel"
+        aria-labelledby="tab-game"
+        tabindex="0"
+        hidden
+    >
+       <p class="panel-label">PROJECT 03 /GAME JAM</p>
+       <h3>Little Guy</h3>
+       <p> 
+            I created pixel art for a mummy-themed platformer with my 
+            team during a three-day Hackclub Game Jam. And we got 127th
+            place out of 280 games and my art got 69th place for the visual 
+            section.
+       </p>
+
+       <div class="tags"
+          <span>Pixel Art</span>
+          <span>Animation</span>
+          <span>Game jam</span>
+       </div>
+
+       <a class="project-link" href="https://ichikoro.itch.io/repossessed" target="_blank" rel="noopener noreferrer">
+    Play on itch.io ↗
+</a>
+    </section>
+    
+    <p class="closing-note"
+        THATS ALL FOR NOW.MORE ARTIFACTS IN THE FUTURE.
+    </P>
+    </main>
+
+    <footer class="site-footer">
+        <span> MADE WITH CURIOSITY & PIXELS</span>
+        <a href="#projects">BACK TO PROJECTS </a>
+    </footer>
+</body>
+</html>

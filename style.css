@@ -1,0 +1,407 @@
+/* 1. BASIC SETTINGS */
+:root {
+  --background: #240d0d;
+  --surface: #492d2d;
+  --cream: #f3e8ca;
+  --purple: #ffe4a0;
+  --muted: #cec8b5;
+  --border: #694351;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--cream);
+  font-family: "Courier New", monospace;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+/* 2. THE OPENING SCENE */
+.hero {
+  position: relative;
+  min-height: 320px;
+  padding: 30px 7% 140px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(
+      ellipse at 50% 110%,
+      #bca56b 0%,
+      transparent 70%
+    ),
+    var(--background);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--purple);
+  font-size: 11px;
+  letter-spacing: 2px;
+  line-height: 1.7;
+}
+
+.hero h1 {
+  margin: 12px 0;
+  font-size: clamp(30px, 5vw, 52px);
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+  color: var(--purple);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* 3. THE SIX-FRAME MUMMY */
+.runner {
+  position: absolute;
+  z-index: 2;
+  left: -100px;
+  bottom: 12px;
+  width: 76px;
+  height: 116px;
+  animation: run-across 3.6s linear forwards;
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  opacity: 0;
+  animation: frame-cycle 0.9s steps(1, end) infinite;
+}
+
+/* Each frame shows for 0.15s. 6 frames x 0.15s = 0.9s per run cycle. */
+.frame-1 { animation-delay: 0s; }
+.frame-2 { animation-delay: -0.75s; }
+.frame-3 { animation-delay: -0.60s; }
+.frame-4 { animation-delay: -0.45s; }
+.frame-5 { animation-delay: -0.30s; }
+.frame-6 { animation-delay: -0.15s; }
+
+@keyframes frame-cycle {
+  0%, 16.66% {
+    opacity: 1;
+  }
+  16.67%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes run-across {
+  from {
+    left: -100px;
+  }
+  to {
+    left: calc(100% + 100px);
+  }
+}
+
+/* 4. SKIP ANIMATION BUTTON */
+.skip-button {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  right: 5%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--cream);
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.skip-button:hover {
+  border-color: var(--purple);
+}
+
+/* 5. PROJECT SECTION */
+.projects-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 55px 24px 65px;
+}
+
+.section-eyebrow {
+  margin-bottom: 8px;
+}
+
+.projects-section h2 {
+  margin: 0;
+  font-size: clamp(26px, 4vw, 36px);
+  letter-spacing: -1px;
+}
+
+.section-intro {
+  margin: 12px 0 26px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* 6. THE CLICKABLE TABS */
+.project-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  text-align: left;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.project-tab:hover {
+  border-color: var(--purple);
+  color: var(--cream);
+}
+
+.project-tab[aria-selected="true"] {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #9d8d41;
+  transform: translateY(-2px);
+}
+
+.tab-number {
+  font-size: 10px;
+  opacity: 0.75;
+}
+
+/* 7. THE PROJECT DETAILS PANEL */
+.project-panel {
+  margin-top: 18px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3d3f20, var(--surface));
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.panel-label {
+  color: var(--purple);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 1.7;
+}
+
+.project-panel h3 {
+  margin: 14px 0;
+  font-size: 24px;
+}
+
+.project-panel > p:not(.panel-label):not(.link-note) {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.tags span {
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--cream);
+  font-size: 10px;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 6px;
+  padding-bottom: 5px;
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px solid var(--purple);
+}
+
+.project-link:hover {
+  color: var(--cream);
+  border-color: var(--cream);
+}
+
+.link-note {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.closing-note {
+  margin-top: 35px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* 8. TAB REVEAL AFTER THE MUMMY RUNS */
+.project-tabs,
+.project-panel {
+  animation: reveal-tabs 0.6s ease 3.6s both;
+}
+
+@keyframes reveal-tabs {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* The skip button (and any tab click) makes them appear immediately. */
+.projects-section.is-visible .project-tabs,
+.projects-section.is-visible .project-panel {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+/* 9. FOOTER */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 22px 7%;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.site-footer a {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+/* 10. SMALL SCREENS */
+@media (max-width: 550px) {
+  .hero {
+    min-height: 310px;
+    padding-inline: 5%;
+  }
+
+  .hero h1 {
+    font-size: 31px;
+    letter-spacing: -1.5px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+
+  .skip-button {
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .project-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .project-tab {
+    width: 100%;
+  }
+
+  .project-panel {
+    padding: 20px;
+  }
+
+  .projects-section {
+    padding: 40px 5% 50px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    line-height: 1.8;
+  }
+}
+
+/* 11. RESPECT REDUCED-MOTION PREFERENCES */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .runner {
+    left: calc(50% - 38px);
+    animation: none;
+  }
+
+  .frame {
+    animation: none;
+  }
+
+  .frame-1 {
+    opacity: 1;
+  }
+
+  .project-tabs,
+  .project-panel {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-tab {
+    transition: none;
+  }
+}
